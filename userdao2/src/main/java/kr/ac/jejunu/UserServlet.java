@@ -30,7 +30,7 @@ public class UserServlet extends GenericServlet {
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
         Integer id = Integer.parseInt(req.getParameter("id"));
-        User user = userDao.findById(id);
+        User user = userDao.findById(24).get();
         res.setContentType("text/html; charset=UTF-8");
         String html = String.format("<html><h1>Hi %s</h1></html>", user.getName());
         res.getWriter().println(html);
